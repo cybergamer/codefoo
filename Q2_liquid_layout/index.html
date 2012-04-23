@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+	<head>
+		<title>James Burroughs | IGN CODE-FOO APPLICATION | Question #2</title>
+		<link href="../resources/css/showcase.css" type="text/css" rel="stylesheet" />
+		<script type="text/javascript" src="../resources/js/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript" src="../resources/js/liquid.js"></script>
+	</head>
+	<body>
+		<div id="liquid_site_constraint">
+			<div id="row_header">
+				<a href="../Q3_license_plates/index.html" class="button dark_button_next"></a>
+				<a href="../Q1_pingpong/index.html" class="button dark_button_prev"></a>
+				<div id="ign_logo"></div>
+				<div id="title"></div>
+			</div>
+			
+			<div class="question" id="qtwo">
+				<div class="question_lining">Create a liquid layout with HTML, CSS, and Javascript. This layout must support the following resolutions: <strong>1024x768, 1680x1050.</strong> Explain why you would use a liquid layout.</div>
+			</div>
+			
+			<div class="row" id="main_row">
+				<div class="column quart">
+					<div class="tab_helper"></div>
+					<h3>Why use a liquid layout?</h3>					
+					<p>Liquid layouts are a great way to scale a web application to be used effectively on a variety of different mediums and platforms with differing screen sizes and resolutions. Unlike static layouts where elements are typically sized with pixel dimensions, elements in a liquid layout are sized based on percentages. This allows a liquid layout to scale based on the amount of space available.</p>
+					<h3>When to <em>not</em> use a liquid layout</h3>					
+					<p>Liquid layouts are a great for designs that can be easily translated into tiled background elements and scalable blocks. However when it comes to creating an interface that utilises heavy amounts of raster graphics as background imagery, has a complex layout or includes a lot of fixed width content, then it can be difficult or near impossible to reproduce what the designer envisioned when the interface is scaled. In this circumstance, it is often a better choice to use a fixed-width layout.</p>					
+				</div>
+				<div class="column quart">
+					<div class="tab_helper"></div>
+					<h3>Liquid Layout Hardships</h3>					
+					<p>Liquid layouts become more difficult to implement when your layout requires static spacing between scaling elements, for example, let's say a 10px gap between columns.  Additionally, if you want scaling elements to emulate a table-like grid where elements are all the same height, the implementation can get more complex (as a CSS background-image workaround cannot be used).</p>
+					<p>To further complicate matters, because of the large discrepancy between resolutions on a computer monitor and on a handheld mobile device, layouts that work on a small screen may not flow correctly on a larger one and vice-versa. For example, you may have a page with 2 columns that look great at 1024px wide, but when scaled up to 1920, the columns are too wide and the text inside them becomes difficult to read. This means you may need to develop separate style sheets for "screen" and "handheld" types that could switch between 2 and 3 columns.</p>
+					<p>When CSS 3.0 is sufficiently supported these issues may be a thing of the past, until then, we've got JavaScript.</p>
+				</div>
+				<div class="column half" id="cut_col">
+					<div class="tab_helper"></div>
+					<h3>My Solution</h3>				
+					<div class="two_col">
+						<p>My liquid layout implementation is used throughout this entire website. Every page has been made to scale from 1024 to 1280. For the purpose of this task, this page has been allowed to scale from 1024 to 1680. For my implementation of a liquid layout, I decided to circumvent numerous browser inconsistencies and CSS tricks and simply write my own JS script that manages the entire process. In a production environment you might want a CSS fallback, however the pages do degrade relatively well so I didn't bother for the purposes of this task.</p>
+						<p>My script scans the DOM when the document is ready, and finds elements with the class "row". First level elements inside rows are considered columns and as such they are given a width based on their class name which may be "quart","third","half","twothird" or "threequart". After determining how many columns are in the row and how much space will be required for static spacing and borders, each column is given its width based on a percentage of the space available.  All columns are then given the same height as the tallest column in the row.</p>
+						<p>This script allowed for rapid page construction and good cross browser compatibility. Additionally, no CSS tricks were used, such as nested lining divs to give static spacing between columns. This meant that the columns were true to their intended percentage based widths.</p>
+						<p>In addition to this basic functionality,  I added the ability for callbacks (functions) to be bound that are fired when the document is scaled beyond a certain amount (pixels). This allows for the document to restructure itself based on the custom functions given. For example, try scaling this page to 1024, and then back to your full resolution.</p>	
+					</div>		
+				</div>
+			</div>
+			
+			<div id="row_bottom_buttons">
+				<a href="../Q3_license_plates/index.html" class="button light_button_next"></a>
+				<a href="../Q1_pingpong/index.html" class="button light_button_prev"></a>
+				<span><strong>Up Next:</strong> <em>Question 3</em> - License Plates</span>
+			</div>
+			
+			<div id="footer">				
+			</div>
+			
+		</div> <!-- END SITE CONSTRAINT -->
+		
+		<script type="text/javascript">
+			(function($, liquid) {
+				var columns = $(".column.quart");
+				var cut_col = document.getElementById("cut_col");
+				var main_row = document.getElementById("main_row");
+				
+				var gt = function() {
+					for(var i = 0; i < columns.length; i++) {
+						columns[i].className = "column quart";
+					}	
+					cut_col.className = "column half";
+					main_row.appendChild(cut_col);									
+				};
+				
+				gt.active = true;
+				
+				var lt = function() {
+					for(var i = 0; i < columns.length; i++) {
+						columns[i].className = "column half";
+					}
+					cut_col.className = "block";
+					cut_col.style.width = "auto";
+					cut_col.style.height = "auto";
+					cut_col.style.marginLeft = "0px";
+					$(cut_col).insertAfter(main_row);				
+				};
+				
+				liquid.register(1024, lt, gt);
+				
+			})(jQuery, liquid);
+		</script>		
+		
+	</body>
+</html>

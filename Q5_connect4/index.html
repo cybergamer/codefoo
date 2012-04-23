@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+	<head>
+		<title>James Burroughs | IGN CODE-FOO APPLICATION | Question #5</title>
+		<link href="../resources/css/showcase.css" type="text/css" rel="stylesheet" />
+		<script type="text/javascript" src="../resources/js/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript" src="../resources/js/liquid.js"></script>
+		<script type="text/javascript" src="../resources/js/connect4.js"></script>
+	</head>
+	<body>
+		
+		<div class="site_constraint">
+			<div id="row_header">
+				<a href="../Q4_video/index.html" class="button dark_button_prev"></a>
+				<div id="ign_logo"></div>
+				<div id="title"></div>
+			</div>
+			
+			<div class="question" id="btwo">				
+				<div class="question_lining">Programmatically create a game of Connect 4&trade; with one AI-controlled opponent and a human-controlled player. </div>
+			</div>
+			
+			<div class="row">
+				<div id="text" class="column quart">
+					<h3>Connect 4 Introduction</h3>
+					<p>Connect Four (also known as Captain's Mistress, Four Up, Plot Four, Find Four, Fourplay, Four in a Row and Four in a Line) is a two-player game in which the players first choose a color and then take turns dropping their colored discs from the top into a seven-column, six-row vertically-suspended grid. The pieces fall straight down, occupying the next available space within the column. The object of the game is to connect four of one's own discs of the same color next to each other vertically, horizontally, or diagonally before one's opponent can do so.<br /><em>src: <a href="http://en.wikipedia.org/wiki/Connect_Four">wikipedia</a></em></p>
+					<p class="hi"><strong>To start the game, simply choose what column you would like to insert your next move and click!</strong></p>
+				</div>
+				<div id="main" class="column half">
+					<div id="connect_four">
+						<div id="connect_four_overlay"></div>
+						<div id="connect_four_redraw"></div>
+					</div>			
+				</div>
+				<div id="optional" class="column quart">
+					<h3 class="tac">Total Moves:</h3>
+					<div id="connect_four_score">0</div>
+					<h3>Recent Results:</h3>
+					<ul id="connect_four_high">
+						<li>James <small>2 day(s) ago.</small><strong class="hi">24</strong></li>
+						<li>James <small>2 day(s) ago.</small><strong class="loss">12</strong></li>
+						<li>James <small>2 day(s) ago.</small><strong class="hi">22</strong></li>
+						<li>James <small>2 day(s) ago.</small><strong class="hi">18</strong></li>
+						<li>James <small>2 day(s) ago.</small><strong class="loss">9</strong></li>
+					</ul>
+				</div>
+			</div>
+			
+			<div id="row_bottom_buttons">
+				<a href="../Q4_video/index.html" class="button light_button_prev"></a>
+			</div>			
+		
+			<div id="footer">			
+			</div>	
+			
+		</div>
+		
+		<script type="text/javascript">
+			(function($, liquid) {
+				var main = document.getElementById("main");
+				var opt = document.getElementById("optional");
+				var text = document.getElementById("text");
+				
+				var gt = function() {
+					$(opt).insertAfter(main);
+					opt.style.display = "block";
+					main.className = "column half";	
+					text.className = "column quart"							
+				};
+				
+				gt.active = true;
+				
+				var lt = function() {
+					$(opt).detach();
+					opt.style.display = "none";
+					main.className = "column twothird";
+					text.className = "column third";
+				};
+				
+				liquid.register(1190, lt, gt);
+				
+			})(jQuery, liquid);
+		</script>		
+			
+	</body>
+</html>

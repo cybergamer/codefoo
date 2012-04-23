@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+	<head>
+		<title>James Burroughs | IGN CODE-FOO APPLICATION | Question #3</title>
+		<link href="../resources/css/showcase.css" type="text/css" rel="stylesheet" />
+		<script type="text/javascript" src="../resources/js/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript" src="../resources/js/liquid.js"></script>
+		<script type="text/javascript" src="../resources/js/license.js"></script>
+	</head>
+	<body>
+		<div class="site_constraint">
+			<div id="row_header">
+				<a href="../Q4_video/index.html" class="button dark_button_next"></a>
+				<a href="../Q2_liquid_layout/index.html" class="button dark_button_prev"></a>
+				<div id="ign_logo"></div>
+				<div id="title"></div>
+			</div>
+			
+			<div class="question" id="qthree">
+				<div class="question_lining">You own a license plate manufacturing company. Write a program that takes a population and determines the simplest pattern that will produce enough unique plates. Since all the plates that match the pattern will be generated, find the pattern that produces the least excess plates. Use a combination of letters (A-Z) and numbers (0-9).</div>
+			</div>
+			
+			<div class="row">
+				<div class="column quart">
+					<h3>Enter a population size!</h3>
+					<p>Simply enter a population size (a number) in the field below and hit <strong class="hi">&lt;enter&gt;</strong> and the result will be displayed in the list to the right.</p>
+					<div id="pop_input">
+						<div id="pop_input_lining">
+							<input id="pop_text_input" type="text" value="Enter a population size..." />
+						</div>
+					</div>
+					
+				</div>
+				<div class="column half">
+					<div id="license_graph">						
+					</div>												
+				</div>
+				<div class="column quart">
+					<h3>My Solution</h3>
+					<p>To solve the license plate problem, I first implemented a loop that would solve the problem using only numbers (no letters). From this I could take the count of numbers (N_POWER) required to make sufficient license plates. The total number plates created by this process was also saved into a variable as a reference as the "best result".</p>
+					<p>I then looped N_POWER times, starting at 10^0 each time adding a power of 10 until 10^N_POWER. Inside the iteration I would make the remaining plates (if any) by incrementally adding powers of 26 (Letters). The internal loop breaks when the total number of plates created exceeds or is equal to that of the population and the new value is checked against the "best result" to determine if a new best pattern has  been found.</p>
+					<p class="hi">... its probably just better to look at the code hah.</p>
+					<h3>Alternate JAVA Solution</h3>
+					<p>I thought to show that I know languages other than JavaScript, I would write different solution in a different language. So I wrote a recursive solution in JAVA. The algorithm finds all the possible pattern variations before collapsing the stack and finding the pattern with the least number of excess plates.</p>
+					<p>
+						<a href="../resources/java/Plates.java">Plates.java</a> &amp; <a href="../resources/java/Pattern.java">Pattern.java</a>
+					</p>
+
+				</div>
+			</div>
+			
+			<div id="row_bottom_buttons">
+				<a href="../Q4_video/index.html" class="button light_button_next"></a>
+				<a href="../Q2_liquid_layout/index.html" class="button light_button_prev"></a>
+				<span><strong>Up Next:</strong> <em>Question 4 (bonus)</em> - Video</span>
+			</div>
+			
+			<div id="footer">				
+			</div>
+			
+		</div> <!-- END SITE CONSTRAINT -->			
+		
+	</body>
+</html>

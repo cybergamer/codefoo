@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+	<head>
+		<title>James Burroughs | IGN CODE-FOO APPLICATION | Question #1</title>
+		<link href="../resources/css/showcase.css" type="text/css" rel="stylesheet" media="all" />
+		<script type="text/javascript" src="../resources/js/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript" src="../resources/js/liquid.js"></script>
+	</head>
+	<body>
+		<div class="site_constraint">
+			<div id="row_header">
+				<a href="../Q2_liquid_layout/index.html" class="button dark_button_next"></a>
+				<a href="../index.html" class="button dark_button_prev"></a>
+				<div id="ign_logo"></div>
+				<div id="title"></div>
+			</div>
+			
+			<div class="question" id="qone">
+				<div class="question_lining">How many ping pong balls would it take to fill an average-sized school bus? Describe each step in your thought process.</div>
+			</div>
+			
+			<div class="row">
+				<div class="column third">
+					<h3>1. How large is a ping pong ball?</h3>
+					<p>To be able to calculate how many ping pong balls can fit into a school bus to any degree of accuracy, the size of a ping-pong ball must first be determined.</p>					
+					<img class="centered_image" src="../resources/images/single_pingpong.jpg" alt="" />
+					<p>According to the international rules of ping-pong (or table tennis), a ping-pong ball must be 40mm in diameter and weigh 2.7 grams. Until recently, ping-pong balls were 38mm in diameter and have since changed to 40mm. For the purpose of this question, it is assumed that the ping-pong balls used are 40mm in diameter.</p>
+					<p>This means that the volume of each ball based off the formula <sup>4</sup>&frasl;<sub>3</sub>&pi;r<sup>3</sup>, will be  ~= <strong>33.51032cm<sup>3</sup></strong> (to 5dp).</p>
+				</div>
+				<div class="column third">
+					<h3>2. How do ping pong balls interact with space? How many can fit into a given area?</h3>
+					<p>To successfully calculate an upper bounds to the problem, a stacking configuration that yields the highest density of ping-pong balls in a given space must be found.</p>				
+					<div id="lattice_pingpong"></div>
+					<p>In geometry, this problem is described as <em>Close-packing of equal spheres</em>. There are two types of lattice arrangements that can achieve the highest possible density, FCC <em> (Cubic Close Packed)</em> &amp; HCP <em>(Hexagonal Close Packed)</em>. Carl Friedrich Gauss proved that the highest average density (the greatest fraction of space occupied by spheres) achieved by a regular lattice arrangement is roughly equal to <strong>0.74048</strong>.</p>
+					<p>So for example, in a box with a volume of 1m<sup>3</sup>, the most space possible to be taken up by ping-pong balls (assuming there is no loss because of incomplete lattice rows) would be 740,480cm<sup>3</sup>. This means that at most, <strong class="hi">22,097</strong> ping-pong balls could fit.</p>				
+				</div>
+				<div class="column third">
+					<h3>3. How much empty space is <em>inside</em> an average school bus?</h3>
+					<p>Finally, the volume of the space to be filled with ping-pong balls must be calculated.</p>
+					<p>In the United States, there typically 4 different types of school buses. Types, A,B,C and D. Type C is considered to be a "conventional" school bus and so for the purpose of this problem,  Type C can be considered "average".</p>
+					<p>Buses in this class were found to have inner capacities of around 10.7m length, 2.3m width and 2m height.  This puts the inner volume of an average school bus at <strong>49.22m<sup>3</sup></strong>.</p>
+					<p>To accurately determine how many ping pong balls would fit inside a school bus of this size, the volumes of the interior objects, like seats, steering wheels, doors and even people would need to be considered. Not only that, but also how these different objects would interrupt the lattice arrangement of the ping-pong balls and cause loss of space. Calculating a value for this loss of space is outside the scope of this investigation and so this value will be ignored.</p>
+					<p>Based on the value of how many ping-pong balls could fit into a cubic meter which was found to be <strong>22,097</strong>, the number of ping-pong balls that could fit inside an "average" school bus is (22,097 * 49.22) which equals <big class="hi"><strong>1,087,618</strong> total ping-pong balls!</big></p>			
+				</div>
+			</div>
+			
+			<div id="row_bottom_buttons">
+				<a href="../Q2_liquid_layout/index.html" class="button light_button_next"></a>
+				<a href="../index.html" class="button light_button_prev"></a>
+				<span><strong>Up Next:</strong> <em>Question 2</em> - Liquid Layout</span>
+			</div>
+		
+			<div id="footer">				
+			</div>
+			
+		</div> <!-- END SITE CONSTRAINT -->
+		
+	</body>
+</html>
