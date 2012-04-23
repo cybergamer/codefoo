@@ -65,16 +65,16 @@
 				
 				var gt = function() {
 					$(opt).insertAfter(main);
-					opt.style.display = "block";
+					opt.className = "column quart";
 					main.className = "column half";	
-					text.className = "column quart"							
+					text.className = "column quart";						
 				};
 				
 				gt.active = true;
 				
 				var lt = function() {
-					$(opt).detach();
-					opt.style.display = "none";
+					opt.className = "phantom";
+					document.body.appendChild(opt);
 					main.className = "column twothird";
 					text.className = "column third";
 				};
